@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, remote} from "electron";
 import * as path from "path";
 
 let mainWindow: Electron.BrowserWindow;
@@ -9,6 +9,9 @@ function createWindow() {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      
+      nodeIntegration: true,
+        
     },
     width: 800,
   });
